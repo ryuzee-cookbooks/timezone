@@ -15,6 +15,11 @@ when "centos","amazon"
   execute cmd do
     action :run
   end
+when "ubuntu", "debian"
+  cmd = "echo 'Asia/Tokyo' > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata"
+  execute cmd do
+    action :run
+  end
 end
 
 # vim: filetype=ruby.chef
